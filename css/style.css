@@ -1,3 +1,5 @@
+/* geral -------------------------------------------- */
+
 @charset "utf-8";
 
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
@@ -8,27 +10,161 @@
     margin: 0;   
 }
 
-body {
+html {
     font-family: "Montserrat", sans-serif;
     font-size: 16px;
 }
 
+/* animacao ----------------------------------------- */
+
+.animado-direita {
+    opacity: 0.1;
+    animation: slider-direita 800ms ease-out;
+    animation-fill-mode: forwards;
+    animation-play-state: paused;
+}
+
+.animado-esquerda {
+    opacity: 0.1;
+    animation: slider-esquerda 800ms ease-out;
+    animation-fill-mode: forwards;
+    animation-play-state: paused;
+}
+
+.animado-cima {
+    opacity: 0.1;
+    animation: slider-cima 800ms ease-out;
+    animation-fill-mode: forwards;
+    animation-play-state: paused;
+
+}
+
+@keyframes slider-direita {
+    0% {
+        opacity: 0.1;
+        transform: translate(-15%, 0);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translate(0, 0);
+    }
+}
+
+@keyframes slider-esquerda {
+    0% {
+        opacity: 0.1;
+        transform: translate(15%, 0);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translate(0, 0);
+    }
+}
+
+@keyframes slider-cima {
+    0% {
+        opacity: 0.1;
+        transform: translate(0, -15%);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translate(0, 0);
+    }
+}
+
+/* grid --------------------------------------------- */
+
+.reserva {
+    display: grid;
+    grid-template-columns: 7.5% 85% 7.5%;
+    grid-template-rows: 30px;
+    grid-template-areas: ". conteudo-reserva .";
+    align-items: center;
+    background-color: rgb(245, 245, 245);
+}
+
+.conteudo-reserva {
+    grid-area: conteudo-reserva;
+}
+
 .cabecalho {
     display: grid;
-    grid-template-columns: 5% 90% 5%;
+    grid-template-columns: 7.5% 85% 7.5%;
     grid-template-areas: ". conteudo-cabecalho .";
+    position: relative;
+    background-image: url(../imagens/fachada-diurna.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: bottom;    
+}
+
+.cabecalho::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.65);
 }
 
 .conteudo-cabecalho {
     grid-area: conteudo-cabecalho;
+    height: 650px;
+    z-index: 1;
+}
+
+.sobre {
+    display: grid;
+    grid-template-columns: 7.5% 85% 7.5%;
+    grid-template-areas: ". conteudo-sobre .";
+    position: relative;
+    background-image: url(../imagens/resort.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: bottom;
+}
+
+.sobre::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(255, 255, 255, 0.95); 
+}
+
+.conteudo-sobre {
+    grid-area: conteudo-sobre;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 150px 0 150px 0;
+    z-index: 1;
+}
+
+.promocoes {
+    display: grid;
+    grid-template-columns: 7.5% 85% 7.5%;
+    grid-template-areas: ". conteudo-promocoes .";
+}
+
+.conteudo-promocoes {
+    grid-area: conteudo-promocoes;
+    margin: 50px 0;
+    background-color: rgb(255, 255, 255);
 }
 
 .depoimentos {
     display: grid;
-    grid-template-columns: 5% 90% 5%;
+    grid-template-columns: 7.5% 85% 7.5%;
     grid-template-areas: ". conteudo-depoimentos .";
     position: relative;
-    background: url(../imagens/fachada-noturna.jpg);
+    background-image: url(../imagens/fachada-noturna.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: bottom;
@@ -53,7 +189,7 @@ body {
 
 .rodape {
     display: grid;
-    grid-template-columns: 5% 90% 5%;
+    grid-template-columns: 7.5% 85% 7.5%;
     grid-template-areas: ". conteudo-rodape .";
     background-color: rgba(25, 25, 25);
 }
@@ -78,7 +214,214 @@ body {
     grid-area: conteudo-copyright;
 }
 
-/* -------------------------------------------------- */
+/* reserva ------------------------------------------ */
+
+.texto-reserva {
+    font-size: 0.875rem;
+    color: rgb(105, 105, 105);
+}
+
+.texto-reserva-destaque {
+    font-size: 0.875rem;
+    font-weight: 800;
+    color: rgb(105, 105, 105);
+}
+
+/* cabecalho ---------------------------------------- */
+
+.conteudo-cabecalho-menu {
+    display: flex;
+    align-items: flex-end;
+    margin: 10px 0 0 0;
+}
+
+.conteudo-cabecalho-menu-redes {
+    position: fixed;
+    list-style: none;
+    top: calc(50% - 100px);
+    left: 20px;
+}
+
+.button-redes {
+    width: 40px;
+    height: 40px;
+    margin: 5px;
+    border: none;
+    border-radius: 50%;
+}
+
+.conteudo-cabecalho-menu-logo {
+    flex-basis: 380px;
+}
+
+.conteudo-cabecalho-menu-esquerdo {
+    flex-basis: calc(50% - 190px);
+    font-size: 1rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    text-align: center;
+    color: rgb(255, 255, 255);
+    list-style: none;
+}
+
+.conteudo-cabecalho-menu-esquerdo li {
+    float: left;
+    padding: 0 10px 20px 10px;
+    border-width: 2px;
+    border-style: solid;
+    border-color: transparent transparent rgba(255, 255, 255, 0.25) transparent;
+    cursor: pointer;
+}
+
+.conteudo-cabecalho-menu-esquerdo li:hover {
+    border-width: 2px;
+    border-style: solid;
+    border-color: transparent transparent rgb(255, 255, 255) transparent;
+}
+
+.conteudo-cabecalho-menu-direito {
+    flex-basis: calc(50% - 190px);
+    font-size: 1rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    text-align: center;
+    color: rgb(255, 255, 255);
+    list-style: none;    
+}
+
+.conteudo-cabecalho-menu-direito li {
+    float: right;
+    padding: 0 10px 20px 10px;
+    border-width: 2px;
+    border-style: solid;
+    border-color: transparent transparent rgba(255, 255, 255, 0.25) transparent;
+    cursor: pointer;
+}
+
+.conteudo-cabecalho-menu-direito li:hover {
+    border-width: 2px;
+    border-style: solid;
+    border-color: transparent transparent rgb(255, 255, 255) transparent;
+}
+
+/* sobre --------------------------------------------- */
+
+.conteudo-sobre-primeira {
+    flex-basis: 40%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.conteudo-sobre-segunda {
+    flex-basis: 40%;
+}
+
+.texto-sobre-titulo {
+    font-size: 2.25rem;
+    font-style: italic;
+    line-height: 2.25rem;
+    font-weight: 500;
+    text-align: center;
+    color: rgb(50, 50, 50);
+}
+
+.texto-sobre {
+    font-size: 1.25rem;
+    line-height: 1.5rem;
+    text-align: center;
+    color: rgb(105, 105, 105);
+    margin: 30px 0;
+}
+
+.button-sobre {
+    width: 200px;
+    height: 50px;
+    margin: 0 5px;
+    border: 2px solid rgb(0, 165, 225);
+    font-size: 1.125rem;
+}
+
+.button-ver {
+    background-color: rgb(0, 165, 225);
+    color: rgb(255, 255, 255);
+}
+
+.button-ler {
+    background-color: rgb(255, 255, 255);
+    color: rgb(0, 165, 225);
+}
+
+.conteudo-sobre-video {
+    padding: 10px;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+}
+
+/* promocoes ---------------------------------------- */
+
+.conteudo-promocoes-secao {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.conteudo-promocoes-titulo {
+    font-size: 2.75rem;
+    text-transform: uppercase;
+    color: rgb(120, 175, 60);
+}
+
+.conteudo-promocoes-linha {
+    margin: 15px 0 45px 0;
+    border-width: 2px;
+    border-style: solid;
+    border-color: rgb(120, 175, 60) transparent transparent transparent;
+}
+
+.conteudo-promocoes-cartao {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-basis: 24.25%;
+    padding: 25px;
+    margin: 0.5% 0;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+}
+
+.conteudo-promocoes-foto {
+    width: 100%;
+}
+
+.texto-promocoes-titulo {
+    font-size: 1.75rem;
+    line-height: 1.65rem;
+    font-weight: 500;
+    color: rgb(50, 50, 50);
+    margin: 25px 0 0 0;
+}
+
+.texto-promocoes {
+    font-size: 1rem;
+    line-height: 1.35rem;
+    font-weight: 500;
+    color: rgb(50, 50, 50);
+    margin: 10px 0 0 0;
+}
+
+.button-promocoes {
+    align-self: center;
+    width: 155px;
+    height: 40px;
+    margin: 20px 0 0 0;
+    border: none;
+    background-color: rgb(120, 175, 60);
+    font-size: 1rem;
+    color: rgb(255, 255, 255);
+}
+
+/* depoimentos -------------------------------------- */
 
 .conteudo-depoimentos-primeira {
     flex-basis: 50%;
@@ -101,8 +444,8 @@ body {
     margin: 0 0 65px 0;
 }
 
-#input-depoimentos {
-    width: 60%;
+.input-depoimentos {
+    width: calc(100% - 160px);
     height: 60px;
     padding: 0 0 0 30px;
     border-width: 2px;
@@ -113,15 +456,15 @@ body {
     color: rgb(80, 180, 220);
 }
 
-#input-depoimentos::placeholder {
+.input-depoimentos::placeholder {
     color: rgb(80, 180, 220);
 }
 
-#input-depoimentos:focus {
+.input-depoimentos:focus {
     outline: none;
 }
 
-#button-depoimentos {
+.button-depoimentos {
     width: 120px;
     height: 60px;
     margin: 0 0 0 20px;
@@ -131,7 +474,7 @@ body {
     color: rgb(0, 165, 225);
 }
 
-/* -------------------------------------------------- */
+/* rodape ------------------------------------------- */
 
 .conteudo-rodape-primeira {
     flex-basis: 25%;
@@ -152,7 +495,7 @@ body {
 
 .texto-rodape-titulo {
     margin: 40px 0 10px 0;
-    font-size: 1.375rem;
+    font-size: 1.275rem;
     text-transform: uppercase;
     color: rgb(220, 220, 220);
 }
@@ -163,7 +506,7 @@ body {
     color: rgb(170, 170, 170);
 }
 
-/* -------------------------------------------------- */
+/* copyright ---------------------------------------- */
 
 .texto-copyright {
     font-size: 0.75rem;
@@ -174,8 +517,6 @@ body {
 
 .texto-copyright-destaque {
     font-style: normal;
-    font-weight: 700;
+    font-weight: 800;
     color: rgb(255, 240, 0);
 }
-
-/* -------------------------------------------------- */
