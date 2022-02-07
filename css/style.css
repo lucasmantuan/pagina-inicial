@@ -18,21 +18,21 @@ html {
 /* animacao ----------------------------------------- */
 
 .animado-direita {
-    opacity: 0.1;
+    opacity: 0;
     animation: slider-direita 800ms ease-out;
     animation-fill-mode: forwards;
     animation-play-state: paused;
 }
 
 .animado-esquerda {
-    opacity: 0.1;
+    opacity: 0;
     animation: slider-esquerda 800ms ease-out;
     animation-fill-mode: forwards;
     animation-play-state: paused;
 }
 
 .animado-cima {
-    opacity: 0.1;
+    opacity: 0;
     animation: slider-cima 800ms ease-out;
     animation-fill-mode: forwards;
     animation-play-state: paused;
@@ -41,7 +41,7 @@ html {
 
 @keyframes slider-direita {
     0% {
-        opacity: 0.1;
+        opacity: 0;
         transform: translate(-15%, 0);
     }
 
@@ -53,7 +53,7 @@ html {
 
 @keyframes slider-esquerda {
     0% {
-        opacity: 0.1;
+        opacity: 0;
         transform: translate(15%, 0);
     }
 
@@ -65,7 +65,7 @@ html {
 
 @keyframes slider-cima {
     0% {
-        opacity: 0.1;
+        opacity: 0;
         transform: translate(0, -15%);
     }
 
@@ -183,6 +183,9 @@ html {
 .conteudo-depoimentos {
     grid-area: conteudo-depoimentos;
     display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-evenly;
     padding: 150px 0 150px 0;
     z-index: 1;
 }
@@ -197,6 +200,8 @@ html {
 .conteudo-rodape {
     grid-area: conteudo-rodape;
     display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
     padding: 80px 0 20px 0;
 }
 
@@ -363,7 +368,7 @@ html {
 .conteudo-promocoes-secao {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: space-around;
 }
 
 .conteudo-promocoes-titulo {
@@ -384,9 +389,9 @@ html {
     flex-wrap: wrap;
     flex-direction: column;
     justify-content: space-between;
-    flex-basis: 24.25%;
+    flex-basis: 22.5%;
     padding: 25px;
-    margin: 0.5% 0;
+    margin: 15px 0;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
 }
 
@@ -423,25 +428,84 @@ html {
 
 /* depoimentos -------------------------------------- */
 
-.conteudo-depoimentos-primeira {
-    flex-basis: 50%;
+.conteudo-depoimentos-secao {
+    flex-basis: 45%;
+    padding: 20px 0;
 }
 
-.conteudo-depoimentos-segunda {
-    flex-basis: 50%;
+.conteudo-depoimentos-aspas {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
 }
 
-.texto-depoimentos-titulo {
+.texto-depoimentos-email-titulo {
     margin: 0 0 10px 0;
     font-size: 2.25rem;
     color: rgb(255, 255, 255);
 }
 
-.texto-depoimentos {
+.texto-depoimentos-email {
     font-size: 1.125rem;
     line-height: 1.65rem;
     color: rgb(185, 185, 185);
     margin: 0 0 65px 0;
+}
+
+.texto-depoimentos {
+    display: none;
+    flex-basis: 60%;
+    position: relative;
+    padding: 40px 100px;
+    font-size: 1rem;
+    font-style: italic;
+    line-height: 1.5rem;
+    color: rgb(185, 185, 185);
+    background-color: rgba(255, 255, 255, 0.15);
+}
+
+.texto-depoimentos::before {
+    position: absolute;
+    top: 50px;
+    left: 10px;
+    content: "\275D";
+    font-size: 8rem;
+    font-style: normal;
+    color: rgb(255, 255, 255);
+}
+
+.texto-depoimentos::after {
+    position: absolute;
+    bottom: 0px;
+    right: 10px;
+    content: "\275E";
+    font-size: 8rem;
+    font-style: normal;
+    color: rgb(255, 255, 255);
+}
+
+.conteudo-depoimentos-indicadores {
+    flex-basis: 60%;
+    text-align: center;
+    padding: 30px 10px 0 10px;
+}
+
+.indicador {
+    display: inline-block;
+    cursor: pointer;
+    height: 15px;
+    width: 15px;
+    margin: 0 5px;
+    border: 1px solid rgb(255, 255, 255);
+}
+
+.indicador:hover {
+    background-color: rgb(255, 255, 255);
+}
+
+.indicador-ativo {
+    background-color: rgb(255, 255, 255);
 }
 
 .input-depoimentos {
@@ -476,31 +540,24 @@ html {
 
 /* rodape ------------------------------------------- */
 
-.conteudo-rodape-primeira {
-    flex-basis: 25%;
+.conteudo-rodape-secao {
+    flex-basis: 21.25%;
+}
+
+.conteudo-rodape-logo {
     align-self: center;
-}
-
-.conteudo-rodape-segunda {
-    flex-basis: 25%;
-}
-
-.conteudo-rodape-terceira {
-    flex-basis: 25%;
-}
-
-.conteudo-rodape-quarta {
-    flex-basis: 25%;
+    padding: 20px 0 20px 0;
 }
 
 .texto-rodape-titulo {
-    margin: 40px 0 10px 0;
+    padding: 20px 0 10px 0;
     font-size: 1.275rem;
     text-transform: uppercase;
     color: rgb(220, 220, 220);
 }
 
 .texto-rodape {
+    padding: 0 0 20px 0;
     font-size: 1rem;
     line-height: 1.5rem;
     color: rgb(170, 170, 170);
@@ -519,4 +576,48 @@ html {
     font-style: normal;
     font-weight: 800;
     color: rgb(255, 240, 0);
+}
+
+/* -------------------------------------------------- */
+
+@media (max-width: 1480px) {
+    html {
+        font-size: 14px;
+    }
+
+    .conteudo-rodape-secao {
+        flex-basis: 42.5%;
+    }
+
+    .conteudo-depoimentos-secao {
+        flex-basis: 90%;
+    }
+}
+
+@media (max-width: 1280px) {
+    .conteudo-promocoes-cartao {
+        flex-basis: 30%;
+    }
+}
+
+
+@media (max-width: 980px) {
+    .conteudo-rodape-secao {
+        flex-basis: 85%;
+        text-align: center;
+    }
+
+    .conteudo-promocoes-cartao {
+        flex-basis: 45%;
+    }
+}
+
+@media (max-width: 680px) {
+    .conteudo-promocoes-cartao {
+        flex-basis: 90%;
+    }
+    
+    .conteudo-cabecalho-menu-redes {
+        display: none;
+    }
 }
