@@ -130,6 +130,7 @@ html {
 .conteudo-sobre {
     grid-area: conteudo-sobre;
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-around;
     align-items: center;
     padding: 150px 0 150px 0;
@@ -211,20 +212,19 @@ html {
 /* reserva ------------------------------------------ */
 
 .texto-reserva {
-    font-size: 0.875rem;
+    font-size: 0.8rem;
     font-weight: 400;
     color: rgb(105, 105, 105);
 }
 
 .texto-reserva-destaque {
-    font-size: 0.875rem;
+    font-size: 0.8rem;
     font-weight: 800;
     color: rgb(105, 105, 105);
 }
 
 .conteudo-reserva-bandeira {
-    height: 30px;
-    margin: 0 5px;
+    height: 25px;
 }
 
 .bandeira-desativada {
@@ -238,6 +238,7 @@ html {
     width: 85%;
     display: flex;
     align-items: flex-end;
+    justify-content: center;
     margin: 10px 0 0 0;
     z-index: 1;
 }
@@ -349,15 +350,15 @@ html {
 
 /* sobre --------------------------------------------- */
 
-.conteudo-sobre-primeira {
+.conteudo-sobre-secao {
     flex-basis: 40%;
+    margin: 10px 0;
+}
+
+.conteudo-sobre-localizacao {
     display: flex;
     flex-direction: column;
     align-items: center;
-}
-
-.conteudo-sobre-segunda {
-    flex-basis: 40%;
 }
 
 .texto-sobre-titulo {
@@ -379,7 +380,7 @@ html {
 }
 
 .button {
-    width: 200px;
+    width: 180px;
     height: 50px;
     margin: 5px;
     border: 2px solid rgb(0, 165, 225);
@@ -397,10 +398,21 @@ html {
 }
 
 .conteudo-sobre-video {
-    padding: 10px;
+    position: relative;
+    padding-bottom: 22.5%; 
+    padding-top: 10px;
     background-color: rgb(255, 255, 255);
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
 }
+
+.conteudo-sobre-video iframe {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    width: calc(100% - 20px);
+    height: calc(100% - 20px);
+}
+
 
 /* promocoes ---------------------------------------- */
 
@@ -652,12 +664,42 @@ html {
         font-size: 14px;
     }
 
+    .texto-cabecalho-titulo {
+        font-size: 2.8125rem;
+        line-height: 2.8125rem;
+    }
+
     .conteudo-rodape-secao {
-        flex-basis: 42.5%;
+        flex-basis: 28.25%;
+    }
+    
+    .conteudo-rodape-logo {
+        flex-basis: 85%;
+        text-align: center;
     }
 }
 
 @media (max-width: 1380px) {
+    .conteudo-cabecalho-menu-esquerdo {
+        font-size: 0.875rem;
+    }
+
+    .conteudo-cabecalho-menu-direito {
+        font-size: 0.875rem;
+    }
+
+    .button {
+        width: 140px;
+        font-size: 1rem;
+    }
+
+    .button-depoimentos {
+        width: 100px;
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 1280px) {
     .conteudo-cabecalho-menu-esquerdo {
         display: none;
     }
@@ -665,14 +707,21 @@ html {
     .conteudo-cabecalho-menu-direito {
         display: none;
     }
-}
 
-@media (max-width: 1280px) {
     .conteudo-promocoes-cartao {
         flex-basis: 30%;
     }
 }
 
+@media (max-width: 1180px) {
+    .conteudo-sobre-secao {
+        flex-basis: 80%;
+    }
+
+    .conteudo-sobre-video {
+        padding-bottom: 45%; 
+    }
+}
 
 @media (max-width: 980px) {
     .conteudo-rodape-secao {
