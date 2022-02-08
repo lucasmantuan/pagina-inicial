@@ -1,4 +1,6 @@
-let indice = 1;
+let indiceBanners = 1;
+
+let indiceDepoimentos = 1;
 
 const elementos = Array.from(document.querySelectorAll(".animado"));
 
@@ -41,7 +43,7 @@ function renderizarElemento() {
     }
 }
 
-function exibirDepoimento(indice) {
+function exibirDepoimento(indiceDepoimentos) {
     let depoimentos = document.querySelectorAll(".texto-depoimentos");
     let indicadores = document.querySelectorAll(".indicador");
 
@@ -53,14 +55,34 @@ function exibirDepoimento(indice) {
         indicadores[i].classList.remove("indicador-ativo");
     }
 
-    depoimentos[indice - 1].style.display = "block";
-    indicadores[indice - 1].classList.add("indicador-ativo")
+    depoimentos[indiceDepoimentos - 1].style.display = "flex";
+    indicadores[indiceDepoimentos - 1].classList.add("indicador-ativo")
+}
+
+function exibirBanner() {
+    let banners = document.querySelectorAll(".conteudo-cabecalho-banner");
+    
+    for (let i = 0; i < banners.length; i++) {
+        banners[i].style.display = "none";
+    }
+
+    indiceBanners++;
+
+    if (indiceBanners > banners.length) {
+        indiceBanners = 1;
+    }
+
+    banners[indiceBanners - 1].style.display = "flex";
+
+    setTimeout(exibirBanner, 4000);
 }
 
 window.addEventListener("scroll", renderizarElemento);
 
 atrasoExibicao(elementos);
 
-exibirDepoimento(indice);
+exibirDepoimento(indiceDepoimentos);
 
 renderizarElemento();
+
+exibirBanner();

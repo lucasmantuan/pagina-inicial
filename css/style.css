@@ -88,33 +88,22 @@ html {
 
 .conteudo-reserva {
     grid-area: conteudo-reserva;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .cabecalho {
     display: grid;
-    grid-template-columns: 7.5% 85% 7.5%;
-    grid-template-areas: ". conteudo-cabecalho .";
-    position: relative;
-    background-image: url(../imagens/fachada-diurna.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: bottom;    
-}
-
-.cabecalho::before {
-    content: "";
-    position: absolute;
-    left: 0;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0, 0, 0, 0.65);
+    grid-template-columns: 100%;
+    grid-template-areas: "conteudo-cabecalho"; 
 }
 
 .conteudo-cabecalho {
+    display: flex;
+    justify-content: center;
     grid-area: conteudo-cabecalho;
-    height: 650px;
-    z-index: 1;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.8), transparent 150px);
 }
 
 .sobre {
@@ -122,7 +111,7 @@ html {
     grid-template-columns: 7.5% 85% 7.5%;
     grid-template-areas: ". conteudo-sobre .";
     position: relative;
-    background-image: url(../imagens/resort.jpg);
+    background-image: url(../imagens/fotos/fachada-diurna.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: bottom;
@@ -164,7 +153,7 @@ html {
     grid-template-columns: 7.5% 85% 7.5%;
     grid-template-areas: ". conteudo-depoimentos .";
     position: relative;
-    background-image: url(../imagens/fachada-noturna.jpg);
+    background-image: url(../imagens/fotos/fachada-noturna.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: bottom;
@@ -223,6 +212,7 @@ html {
 
 .texto-reserva {
     font-size: 0.875rem;
+    font-weight: 400;
     color: rgb(105, 105, 105);
 }
 
@@ -232,12 +222,24 @@ html {
     color: rgb(105, 105, 105);
 }
 
+.conteudo-reserva-bandeira {
+    height: 30px;
+    margin: 0 5px;
+}
+
+.bandeira-desativada {
+    filter: grayscale(1);
+}
+
 /* cabecalho ---------------------------------------- */
 
 .conteudo-cabecalho-menu {
+    position: absolute;
+    width: 85%;
     display: flex;
     align-items: flex-end;
     margin: 10px 0 0 0;
+    z-index: 1;
 }
 
 .conteudo-cabecalho-menu-redes {
@@ -245,14 +247,7 @@ html {
     list-style: none;
     top: calc(50% - 100px);
     left: 20px;
-}
-
-.button-redes {
-    width: 40px;
-    height: 40px;
-    margin: 5px;
-    border: none;
-    border-radius: 50%;
+    z-index: 1;
 }
 
 .conteudo-cabecalho-menu-logo {
@@ -262,7 +257,7 @@ html {
 .conteudo-cabecalho-menu-esquerdo {
     flex-basis: calc(50% - 190px);
     font-size: 1rem;
-    font-weight: 500;
+    font-weight: 600;
     text-transform: uppercase;
     text-align: center;
     color: rgb(255, 255, 255);
@@ -287,7 +282,7 @@ html {
 .conteudo-cabecalho-menu-direito {
     flex-basis: calc(50% - 190px);
     font-size: 1rem;
-    font-weight: 500;
+    font-weight: 600;
     text-transform: uppercase;
     text-align: center;
     color: rgb(255, 255, 255);
@@ -309,6 +304,49 @@ html {
     border-color: transparent transparent rgb(255, 255, 255) transparent;
 }
 
+.conteudo-cabecalho-banner {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    width: 100%;
+    padding: 195px 0 100px 0;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    z-index: -1;
+    
+}
+
+.conteudo-cabecalho-banner::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: -1;
+}
+
+.texto-cabecalho-titulo {
+    font-size: 3.75rem;
+    font-weight: 600;
+    font-style: italic;
+    line-height: 3.75rem;
+    text-align: center;
+    color: rgb(255, 255, 255);
+}
+
+.texto-cabecalho {
+    padding: 20px 0;
+    font-size: 1.5rem;
+    font-weight: 400;
+    line-height: 1.5rem;
+    text-align: center;
+    color: rgb(210, 210, 210);
+}
+
 /* sobre --------------------------------------------- */
 
 .conteudo-sobre-primeira {
@@ -324,35 +362,36 @@ html {
 
 .texto-sobre-titulo {
     font-size: 2.25rem;
+    font-weight: 600;
     font-style: italic;
     line-height: 2.25rem;
-    font-weight: 500;
     text-align: center;
     color: rgb(50, 50, 50);
 }
 
 .texto-sobre {
     font-size: 1.25rem;
+    font-weight: 400;
     line-height: 1.5rem;
     text-align: center;
     color: rgb(105, 105, 105);
     margin: 30px 0;
 }
 
-.button-sobre {
+.button {
     width: 200px;
     height: 50px;
-    margin: 0 5px;
+    margin: 5px;
     border: 2px solid rgb(0, 165, 225);
     font-size: 1.125rem;
 }
 
-.button-ver {
+.button-azul {
     background-color: rgb(0, 165, 225);
     color: rgb(255, 255, 255);
 }
 
-.button-ler {
+.button-branco {
     background-color: rgb(255, 255, 255);
     color: rgb(0, 165, 225);
 }
@@ -373,6 +412,7 @@ html {
 
 .conteudo-promocoes-titulo {
     font-size: 2.75rem;
+    font-weight: 800;
     text-transform: uppercase;
     color: rgb(120, 175, 60);
 }
@@ -401,16 +441,16 @@ html {
 
 .texto-promocoes-titulo {
     font-size: 1.75rem;
+    font-weight: 600;
     line-height: 1.65rem;
-    font-weight: 500;
     color: rgb(50, 50, 50);
     margin: 25px 0 0 0;
 }
 
 .texto-promocoes {
     font-size: 1rem;
+    font-weight: 400;
     line-height: 1.35rem;
-    font-weight: 500;
     color: rgb(50, 50, 50);
     margin: 10px 0 0 0;
 }
@@ -443,11 +483,13 @@ html {
 .texto-depoimentos-email-titulo {
     margin: 0 0 10px 0;
     font-size: 2.25rem;
+    font-weight: 600;
     color: rgb(255, 255, 255);
 }
 
 .texto-depoimentos-email {
     font-size: 1.125rem;
+    font-weight: 400;
     line-height: 1.65rem;
     color: rgb(185, 185, 185);
     margin: 0 0 65px 0;
@@ -455,10 +497,12 @@ html {
 
 .texto-depoimentos {
     display: none;
-    flex-basis: 60%;
+    align-items: center;
+    flex-basis: 80%;
     position: relative;
-    padding: 40px 100px;
+    padding: 30px 90px;
     font-size: 1rem;
+    font-weight: 400;
     font-style: italic;
     line-height: 1.5rem;
     color: rgb(185, 185, 185);
@@ -538,6 +582,21 @@ html {
     color: rgb(0, 165, 225);
 }
 
+.fade {
+    animation-name: fade;
+    animation-duration: 800ms;
+}
+
+@keyframes fade {
+    0% {
+        opacity: 0.1;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
 /* rodape ------------------------------------------- */
 
 .conteudo-rodape-secao {
@@ -551,30 +610,38 @@ html {
 
 .texto-rodape-titulo {
     padding: 20px 0 10px 0;
-    font-size: 1.275rem;
+    font-size: 1.25rem;
+    font-weight: 600;
     text-transform: uppercase;
     color: rgb(220, 220, 220);
 }
 
 .texto-rodape {
     padding: 0 0 20px 0;
-    font-size: 1rem;
+    font-size: 0.875rem;
+    font-weight: 400;
     line-height: 1.5rem;
     color: rgb(170, 170, 170);
+}
+
+.conteudo-rodape-icones {
+    width: 40px;
 }
 
 /* copyright ---------------------------------------- */
 
 .texto-copyright {
-    font-size: 0.75rem;
+    font-size: 0.7rem;
+    font-weight: 400;
     font-style: italic;
     text-align: center;
     color: rgb(210, 210, 210);
 }
 
 .texto-copyright-destaque {
-    font-style: normal;
+    font-size: 0.7rem;
     font-weight: 800;
+    font-style: normal;
     color: rgb(255, 240, 0);
 }
 
@@ -588,9 +655,15 @@ html {
     .conteudo-rodape-secao {
         flex-basis: 42.5%;
     }
+}
 
-    .conteudo-depoimentos-secao {
-        flex-basis: 90%;
+@media (max-width: 1380px) {
+    .conteudo-cabecalho-menu-esquerdo {
+        display: none;
+    }
+
+    .conteudo-cabecalho-menu-direito {
+        display: none;
     }
 }
 
@@ -609,6 +682,11 @@ html {
 
     .conteudo-promocoes-cartao {
         flex-basis: 45%;
+    }
+
+    .conteudo-depoimentos-secao {
+        flex-basis: 90%;
+        text-align: center;
     }
 }
 
