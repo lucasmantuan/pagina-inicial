@@ -4,6 +4,11 @@
 
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 
+@font-face {
+    font-family: "Mantuan";
+    src: url(../fonts/mantuan.ttf);
+}
+
 * {
     box-sizing: border-box;
     padding: 0;
@@ -11,6 +16,7 @@
 }
 
 html {
+    scroll-behavior: smooth;
     font-family: "Montserrat", sans-serif;
     font-size: 16px;
 }
@@ -224,7 +230,7 @@ html {
 }
 
 .conteudo-reserva-bandeira {
-    height: 25px;
+    height: 20px;
 }
 
 .bandeira-desativada {
@@ -240,7 +246,7 @@ html {
     align-items: flex-end;
     justify-content: center;
     margin: 10px 0 0 0;
-    z-index: 1;
+    z-index: 2;
 }
 
 .conteudo-cabecalho-menu-redes {
@@ -248,14 +254,17 @@ html {
     list-style: none;
     top: calc(50% - 100px);
     left: 20px;
-    z-index: 1;
+    z-index: 2;
 }
 
 .conteudo-cabecalho-menu-logo {
     flex-basis: 380px;
+
 }
 
 .conteudo-cabecalho-menu-esquerdo {
+    display: flex;
+    justify-content: space-evenly;
     flex-basis: calc(50% - 190px);
     font-size: 1rem;
     font-weight: 600;
@@ -263,14 +272,16 @@ html {
     text-align: center;
     color: rgb(255, 255, 255);
     list-style: none;
-}
-
-.conteudo-cabecalho-menu-esquerdo li {
-    float: left;
-    padding: 0 10px 20px 10px;
     border-width: 2px;
     border-style: solid;
     border-color: transparent transparent rgba(255, 255, 255, 0.25) transparent;
+    user-select: none;
+}
+
+.conteudo-cabecalho-menu-esquerdo li {
+    margin: 0 5px;
+    padding: 0 10px 20px 10px;
+    border: 2px solid transparent;
     cursor: pointer;
 }
 
@@ -281,21 +292,25 @@ html {
 }
 
 .conteudo-cabecalho-menu-direito {
+    display: flex;
+    justify-content: space-evenly;
     flex-basis: calc(50% - 190px);
     font-size: 1rem;
     font-weight: 600;
     text-transform: uppercase;
     text-align: center;
     color: rgb(255, 255, 255);
-    list-style: none;    
-}
-
-.conteudo-cabecalho-menu-direito li {
-    float: right;
-    padding: 0 10px 20px 10px;
+    list-style: none;
     border-width: 2px;
     border-style: solid;
     border-color: transparent transparent rgba(255, 255, 255, 0.25) transparent;
+    user-select: none; 
+}
+
+.conteudo-cabecalho-menu-direito li {
+    margin: 0 5px;
+    padding: 0 10px 20px 10px;
+    border: 2px solid transparent;
     cursor: pointer;
 }
 
@@ -315,8 +330,7 @@ html {
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-    z-index: -1;
-    
+    z-index: 1;
 }
 
 .conteudo-cabecalho-banner::before {
@@ -380,11 +394,30 @@ html {
 }
 
 .button {
-    width: 180px;
-    height: 50px;
+    font-size: 1rem;
+    font-weight: 600;
+    text-align: center;
+    list-style: none;
+    user-select: none;
+}
+
+.button li {
+    float: left;
+    padding: 15px;
     margin: 5px;
     border: 2px solid rgb(0, 165, 225);
-    font-size: 1.125rem;
+    cursor: pointer;
+}
+
+.button li:hover {
+    background-color: rgb(0, 130, 175);
+    border: 2px solid rgb(0, 130, 175);
+    color: rgb(255, 255, 255);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+}
+
+.button a {
+    text-decoration: none;
 }
 
 .button-azul {
@@ -469,13 +502,29 @@ html {
 
 .button-promocoes {
     align-self: center;
-    width: 155px;
-    height: 40px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    text-align: center;
+    list-style: none;
+    user-select: none;
+}
+
+.button-promocoes li {
     margin: 20px 0 0 0;
-    border: none;
-    background-color: rgb(120, 175, 60);
-    font-size: 1rem;
+    padding: 10px 30px;
     color: rgb(255, 255, 255);
+    background-color: rgb(120, 175, 60);
+    border: none;
+    cursor: pointer;
+}
+
+.button-promocoes li:hover {
+    background-color: rgb(95, 140, 50);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+}
+
+.button-promocoes a {
+    text-decoration: none;
 }
 
 /* depoimentos -------------------------------------- */
@@ -565,7 +614,8 @@ html {
 }
 
 .input-depoimentos {
-    width: calc(100% - 160px);
+    float: left;
+    width: calc(100% - 140px);
     height: 60px;
     padding: 0 0 0 30px;
     border-width: 2px;
@@ -585,13 +635,31 @@ html {
 }
 
 .button-depoimentos {
-    width: 120px;
-    height: 60px;
+    float: left;
     margin: 0 0 0 20px;
-    border: 2px solid rgb(0, 165, 225);
-    background-color: transparent;
-    font-size: 1.125rem;
+    font-size: 1rem;
+    font-weight: 600;
+    text-align: center;
+    list-style: none;
+    user-select: none;
+}
+
+.button-depoimentos li {
+    width: 120px;
+    padding: 20px 0;
     color: rgb(0, 165, 225);
+    background-color: transparent;
+    border: 2px solid rgb(0, 165, 225);
+    cursor: pointer;
+}
+
+.button-depoimentos li:hover {
+    background-color: rgba(0, 0, 0, 0.4);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+}
+
+.button-depoimentos a {
+    text-decoration: none;
 }
 
 .fade {
@@ -629,11 +697,17 @@ html {
 }
 
 .texto-rodape {
+    position: relative;
     padding: 0 0 20px 0;
     font-size: 0.875rem;
     font-weight: 400;
     line-height: 1.5rem;
     color: rgb(170, 170, 170);
+}
+
+.texto-rodape-icones {
+    font-family: "Mantuan";
+    font-size: 1rem;
 }
 
 .conteudo-rodape-icones {
@@ -689,13 +763,16 @@ html {
     }
 
     .button {
-        width: 140px;
-        font-size: 1rem;
+        padding: 10px;
+        font-size: 0.875rem;
     }
 
     .button-depoimentos {
-        width: 100px;
-        font-size: 1rem;
+        font-size: 0.975rem;
+    }
+
+    .input-depoimentos {
+        font-size: 0.975rem;
     }
 }
 
