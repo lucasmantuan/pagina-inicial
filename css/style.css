@@ -825,3 +825,9 @@ html {
         display: none;
     }
 }
+
+@media (max-width: 380px) {
+    .conteudo-reserva-bandeira {
+        display: none;
+    }
+}
